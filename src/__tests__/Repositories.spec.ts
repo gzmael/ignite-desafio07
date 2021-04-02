@@ -1,12 +1,12 @@
 import {
-  Connection, createConnection, getRepository, Repository,
+  Connection, createConnection, getRepository, Repository
 } from 'typeorm';
-
 import { Game } from '../modules/games/entities/Game';
-import { User } from '../modules/users/entities/User';
-
-import { UsersRepository } from '../modules/users/repositories/implementations/UsersRepository';
 import { GamesRepository } from '../modules/games/repositories/implementations/GamesRepository';
+import { User } from '../modules/users/entities/User';
+import { UsersRepository } from '../modules/users/repositories/implementations/UsersRepository';
+
+
 
 const usersSeed: User[] = [
   {
@@ -202,6 +202,7 @@ describe('Repositories', () => {
     });
 
     const users = await gamesRepository.findUsersByGameId(game.id);
+    console.log(users);
 
     expect(users).toEqual([
       expect.objectContaining({
